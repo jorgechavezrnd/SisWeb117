@@ -1,20 +1,28 @@
 <?php 
 	$controlador = new ControladorCursos();
+	$aux='CFP-';
+	$resultado=strpos($_POST['id'], $aux);
 	if (isset($_POST['enviar'])) {
-		$r = $controlador->crear($_POST['id'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente_id']);
+		if ($resultado===0) {
+    		$r = $controlador->crear($_POST['id'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente_id']);
+    		if ($r) {
+				echo "Se ha registrado un nuevo curso";
+			} else {
+				echo "El curso que esta intentando registrar ya existe";
+			}
+    	}else {
+        	echo "Formato de Id invalido";
+	    }
+		
 
-		if ($r) {
-			echo "Se ha registrado un nuevo curso";
-		} else {
-			echo "El curso que esta intentando registrar ya existe";
-		}
+		
 	}
 ?>
 <h3>Registro de un nuevo curso</h3>
 <hr>
 <form action="" method="POST">
 	<label>id</label><br>
-	<input type="number" name="id" required>
+	<input type="text" name="id" maxlength="7" required>
 	<br><br>
 	<label>titulo</label><br>
 	<input type="text" name="titulo" maxlength="30" required>

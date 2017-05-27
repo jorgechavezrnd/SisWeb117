@@ -15,7 +15,7 @@
 
  <form action="" method="POST">
  	Id: <br>
- 	<input type="number" name="id" value="<?php echo $row['id']; ?>" disabled>
+ 	<input type="text" name="id" value="<?php echo $row['id']; ?>" disabled>
  	<br><br>
  	titulo: <br>
  	<input type="text" name="titulo" value="<?php echo $row['titulo']; ?>" required>

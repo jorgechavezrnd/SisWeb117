@@ -11,7 +11,7 @@
 		header("Location: index.php");
 	}
  ?>
-
+<br><br>
  ¿Usted de verdad quiere eliminar el curso de: <?php echo $row['titulo'] ?>?
  <br><br>
 

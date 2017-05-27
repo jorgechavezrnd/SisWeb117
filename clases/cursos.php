@@ -65,8 +65,7 @@
 			$this->titulo = $row['titulo'];
 			$this->resumen = $row['resumen'];
 			$this->fecha_inicio = $row['fecha_inicio'];
-			$this->nombre = $row['nombre'];
-			$this->apellido = $row['apellido'];
+			$this->docente_id = $row['docente_id'];
 
 			return $row;
 		}
