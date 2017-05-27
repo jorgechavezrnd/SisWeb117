@@ -1,10 +1,12 @@
 <?php 
 	$controlador = new ControladorCursos();
-	$aux='CFP-';
+	$aux='CF';
+	$aux2='-';
 	$resultado=strpos($_POST['sigla'], $aux);
+	$resultado3=strpos($_POST['sigla'],$aux2);
 	$resultado2 = $controlador->getdocentes();
 	if (isset($_POST['enviar'])) {
-		if ($resultado===0) {
+		if ($resultado===0 && $resultado3===3) {
     		$r = $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
     		if ($r) {
 				echo "Se ha registrado un nuevo curso";
@@ -12,7 +14,7 @@
 				echo "El curso que esta intentando registrar ya existe";
 			}
     	}else {
-        	echo "Formato de sigla invalido";
+        	echo "Formato de sigla invalido, Formato: CF?-###";
 	    }
 		
 
