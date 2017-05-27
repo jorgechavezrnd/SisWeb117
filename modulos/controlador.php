@@ -17,9 +17,9 @@
 			return $resultado;
 		}
 
-		public function crear($id, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function crear($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
 
-			$this->cursos->set("id", $id);
+			$this->cursos->set("sigla", $sigla);
 			$this->cursos->set("titulo", $titulo);
 			$this->cursos->set("resumen", $resumen);
 			$this->cursos->set("fecha_inicio", $fecha_inicio);
@@ -29,19 +29,19 @@
 			return $resultado;
 		}
 
-		public function eliminar($id) {
-			$this->cursos->set("id", $id);
+		public function eliminar($sigla) {
+			$this->cursos->set("sigla", $sigla);
 			$this->cursos->eliminar();
 		}
 
-		public function ver($id) {
-			$this->cursos->set("id", $id);
+		public function ver($sigla) {
+			$this->cursos->set("sigla", $sigla);
 			$datos = $this->cursos->ver();
 			return $datos;
 		}
 
-		public function editar($id, $titulo, $resumen, $fecha_inicio, $docente_id) {
-			$this->cursos->set("id", $id);
+		public function editar($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+			$this->cursos->set("sigla", $sigla);
 			$this->cursos->set("titulo", $titulo);
 			$this->cursos->set("resumen", $resumen);
 			$this->cursos->set("fecha_inicio", $fecha_inicio);
@@ -49,6 +49,10 @@
 			$this->cursos->editar();
 		}
 		
+		public function getdocentes() {
+			$resultado = $this->cursos->getdocentes();
+			return $resultado;
+		}
 
 	}
 

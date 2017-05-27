@@ -6,7 +6,7 @@
 	class Curso {
 
 		// Atributos
-		private $id;
+		private $sigla;
 		private $titulo;
 		private $resumen;
 		private $fecha_inicio;
@@ -28,22 +28,22 @@
 		}
 
 		public function listar() {
-			$sql = "SELECT * FROM Cursos";
+			$sql = "SELECT * FROM Cursos,Docente WHERE Cursos.docente_id=Docente.id";
 			$resultado = $this->con->consultaRetorno($sql);
 			return $resultado;
 		}
 
 		public function crear() {
 
-			$sql2 = "SELECT * FROM Cursos WHERE id = '{$this->id}'";
+			$sql2 = "SELECT * FROM Cursos WHERE sigla = '{$this->sigla}'";
 			$resultado = $this->con->consultaRetorno($sql2);
 			$num = mysql_num_rows($resultado);
 
 			if ($num != 0) {
 				return false;
 			} else {
-				$sql = "INSERT INTO Cursos (id, titulo, resumen, fecha_inicio, docente_id) VALUES (
-					'{$this->id}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
+				$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id) VALUES (
+					'{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
 
 				$this->con->consultaSimple($sql);
 				return true;
@@ -51,17 +51,17 @@
 		}
 
 		public function eliminar() {
-			$sql = "DELETE FROM Cursos WHERE id = '{$this->id}'";
+			$sql = "DELETE FROM Cursos WHERE sigla = '{$this->sigla}'";
 			$this->con->consultaSimple($sql);
 		}
 
 		public function ver() {
-			$sql = "SELECT * FROM Cursos WHERE  id = '{$this->id}' LIMIT 1";
+			$sql = "SELECT * FROM Cursos,Docente WHERE  Cursos.docente_id=Docente.id AND sigla = '{$this->sigla}' LIMIT 1";
 			$resultado = $this->con->consultaRetorno($sql);
 			$row = mysql_fetch_assoc($resultado);
 
 			// Set
-			$this->id = $row['id'];
+			$this->sigla = $row['sigla'];
 			$this->titulo = $row['titulo'];
 			$this->resumen = $row['resumen'];
 			$this->fecha_inicio = $row['fecha_inicio'];
@@ -71,11 +71,16 @@
 		}
 
 		public function editar() {
-			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' WHERE id = '{$this->id}'";
+			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' WHERE sigla = '{$this->sigla}'";
 
 			$this->con->consultaSimple($sql);
 		}
 
+		public function getdocentes(){
+			$sql = "SELECT * FROM Docente";
+			$resultado = $this->con->consultaRetorno($sql);
+			return $resultado;
+		}
 
 
 	}

@@ -1,33 +1,42 @@
 <?php 
+    
 	$controlador = new ControladorCursos();
-	if (isset($_GET['id'])) {
-		$row = $controlador->ver($_GET['id']);
+	$resultado = $controlador->getdocentes();
+
+	if (isset($_GET['sigla'])) {
+		$row = $controlador->ver($_GET['sigla']);
 	} else {
 		header("Location: index.php");
 	}
 
 	if (isset($_POST['enviar'])) {
-		$controlador->editar($_GET['id'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente_id']);
+		$controlador->editar($_GET['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
 		header('Location: index.php');
 	}
 
  ?>
 
+
+
  <form action="" method="POST">
- 	Id: <br>
- 	<input type="text" name="id" value="<?php echo $row['id']; ?>" disabled>
+ 	Sigla: <br>
+ 	<input type="text" name="sigla" value="<?php echo $row['sigla']; ?>" disabled>
  	<br><br>
- 	titulo: <br>
+ 	Titulo: <br>
  	<input type="text" name="titulo" value="<?php echo $row['titulo']; ?>" required>
  	<br><br>
- 	resumen: <br>
+ 	Resumen: <br>
  	<input type="text" name="resumen" value="<?php echo $row['resumen']; ?>" required>
  	<br><br>
- 	fecha de inicio: <br>
+ 	Fecha de inicio: <br>
  	<input type="date" name="fecha_inicio" value="<?php echo $row['fecha_inicio']; ?>" required>
  	<br><br>
- 	id del docente: <br>
- 	<input type="number" name="docente_id" value="<?php echo $row['docente_id']; ?>" required>
- 	
+ 	Docente: <br>
+ 	<select name='selectid'>
+ 		<?php while ($row = mysql_fetch_array($resultado)): ?>
+  		<option value="<?php echo $row['id']; ?>" required><?php echo $row['nombre']; ?></option>
+  		<?php endwhile; ?>
+	</select>
+ 	<br><br>
  	<input type="submit" name="enviar" value="Editar">
  </form>

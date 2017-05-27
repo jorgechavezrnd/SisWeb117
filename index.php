@@ -7,12 +7,12 @@
  <html>
 	 <head>
 	 	<meta charset="utf-8"/>
-	 	<title>Curso POO con PHP</title>
+	 	<title>Curso de formacion continua</title>
 	 </head>
 	 <body>
 
 				<a href="index.php">Inicio</a>
-	 			<a href="?cargar=crear">Registrar</a>
+	 			<a href="?cargar=crear">Crear curso de formacion continua</a>
 	 	
 	 		<?php 
 	 			$enrutador = new Enrutador();

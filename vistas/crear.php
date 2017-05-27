@@ -1,17 +1,18 @@
 <?php 
 	$controlador = new ControladorCursos();
 	$aux='CFP-';
-	$resultado=strpos($_POST['id'], $aux);
+	$resultado=strpos($_POST['sigla'], $aux);
+	$resultado2 = $controlador->getdocentes();
 	if (isset($_POST['enviar'])) {
 		if ($resultado===0) {
-    		$r = $controlador->crear($_POST['id'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente_id']);
+    		$r = $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
     		if ($r) {
 				echo "Se ha registrado un nuevo curso";
 			} else {
 				echo "El curso que esta intentando registrar ya existe";
 			}
     	}else {
-        	echo "Formato de Id invalido";
+        	echo "Formato de sigla invalido";
 	    }
 		
 
@@ -21,20 +22,23 @@
 <h3>Registro de un nuevo curso</h3>
 <hr>
 <form action="" method="POST">
-	<label>id</label><br>
-	<input type="text" name="id" maxlength="7" required>
+	<label>Sigla</label><br>
+	<input type="text" name="sigla" maxlength="7" required>
 	<br><br>
-	<label>titulo</label><br>
-	<input type="text" name="titulo" maxlength="30" required>
+	<label>Titulo</label><br>
+	<input type="text" name="titulo" minlength="1" maxlength="30" required>
 	<br><br>
-	<label>resumen</label><br>
-	<input type="text" name="resumen" maxlength="500" required>
+	<label>Resumen</label><br>
+	<input type="text" name="resumen" minlength="1" maxlength="500" required>
 	<br><br>
-	<label>fecha de inicio</label><br>
+	<label>Fecha de inicio</label><br>
 	<input type="date" name="fecha_inicio" required>
 	<br><br>
-	<label>id del docente</label><br>
-	<input type="number" name="docente_id" required>
-	
+	<label>Docente</label><br>
+	<select name='selectid'>
+ 		<?php while ($row = mysql_fetch_array($resultado2)): ?>
+  		<option value="<?php echo $row['id']; ?>" required><?php echo $row['nombre']; ?></option>
+  		<?php endwhile; ?>
+	</select>
 	<input type="submit" name="enviar" value="Crear">
 </form>
