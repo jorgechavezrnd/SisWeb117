@@ -1,13 +1,13 @@
 <?php 
 	$controlador = new ControladorCursos();
-	if (isset($_GET['sigla'])) {
-		$row = $controlador->ver($_GET['sigla']);
+	if (isset($_GET['curso_id'])) {
+		$row = $controlador->ver($_GET['curso_id']);
 	} else {
 		header("Location: index.php");
 	}
 
 	if (isset($_POST['enviar'])) {
-		$controlador->eliminar($_GET['sigla']);
+		$controlador->eliminar($_GET['curso_id']);
 		header("Location: index.php");
 	}
  ?>

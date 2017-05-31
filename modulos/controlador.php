@@ -17,8 +17,9 @@
 			return $resultado;
 		}
 
-		public function crear($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function crear($curso_id,$sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
 
+			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->set("sigla", $sigla);
 			$this->cursos->set("titulo", $titulo);
 			$this->cursos->set("resumen", $resumen);
@@ -29,18 +30,19 @@
 			return $resultado;
 		}
 
-		public function eliminar($sigla) {
-			$this->cursos->set("sigla", $sigla);
+		public function eliminar($curso_id) {
+			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->eliminar();
 		}
 
-		public function ver($sigla) {
-			$this->cursos->set("sigla", $sigla);
+		public function ver($curso_id) {
+			$this->cursos->set("curso_id", $curso_id);
 			$datos = $this->cursos->ver();
 			return $datos;
 		}
 
-		public function editar($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function editar($curso_id,$sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->set("sigla", $sigla);
 			$this->cursos->set("titulo", $titulo);
 			$this->cursos->set("resumen", $resumen);

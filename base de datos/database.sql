@@ -20,15 +20,16 @@ USE `CFC`;
 -- Dumping structure for table CFC.Cursos
 DROP TABLE IF EXISTS `Cursos`;
 CREATE TABLE IF NOT EXISTS `Cursos` (
+  `curso_id` int(11) NOT NULL AUTO_INCREMENT,
   `sigla` varchar(7) NOT NULL,
   `titulo` varchar(30) DEFAULT NULL,
   `resumen` varchar(500) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `docente_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`sigla`),
+  PRIMARY KEY (`curso_id`),
   KEY `FK_Cursos_Docente` (`docente_id`),
   CONSTRAINT `FK_Cursos_Docente` FOREIGN KEY (`docente_id`) REFERENCES `Docente` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
 -- Dumping structure for table CFC.Docente

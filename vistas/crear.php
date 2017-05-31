@@ -1,29 +1,21 @@
 <?php 
 	$controlador = new ControladorCursos();
-	$aux='CF';
-	$aux2='-';
-	$resultado=strpos($_POST['sigla'], $aux);
-	$resultado3=strpos($_POST['sigla'],$aux2);
 	$resultado2 = $controlador->getdocentes();
 	if (isset($_POST['enviar'])) {
-		if ($resultado===0 && $resultado3===3) {
-    		$r = $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
-    		if ($r) {
-				echo "Se ha registrado un nuevo curso";
-			} else {
-				echo "El curso que esta intentando registrar ya existe";
-			}
-    	}else {
-        	echo "Formato de sigla invalido, Formato: CF?-###";
-	    }
-		
-
-		
+    	$r = $controlador->crear($_POST['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
+    	if ($r) {
+			echo "Se ha registrado un nuevo curso";
+		} else {
+			echo "El curso que esta intentando registrar ya existe";
+		}
 	}
 ?>
 <h3>Registro de un nuevo curso</h3>
 <hr>
 <form action="" method="POST">
+	<label>Id del curso: </label><br>
+	<input type="text" name="curso_id" required>
+	<br><br>
 	<label>Sigla</label><br>
 	<input type="text" name="sigla" maxlength="7" required>
 	<br><br>

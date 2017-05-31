@@ -6,6 +6,7 @@
 	class Curso {
 
 		// Atributos
+		private $curso_id;
 		private $sigla;
 		private $titulo;
 		private $resumen;
@@ -35,15 +36,15 @@
 
 		public function crear() {
 
-			$sql2 = "SELECT * FROM Cursos WHERE sigla = '{$this->sigla}'";
+			$sql2 = "SELECT * FROM Cursos WHERE curso_id = '{$this->curso_id}'";
 			$resultado = $this->con->consultaRetorno($sql2);
 			$num = mysql_num_rows($resultado);
 
 			if ($num != 0) {
 				return false;
 			} else {
-				$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id) VALUES (
-					'{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
+				$sql = "INSERT INTO Cursos (curso_id,sigla, titulo, resumen, fecha_inicio, docente_id) VALUES (
+					'{$this->curso_id}','{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
 
 				$this->con->consultaSimple($sql);
 				return true;
@@ -51,16 +52,17 @@
 		}
 
 		public function eliminar() {
-			$sql = "DELETE FROM Cursos WHERE sigla = '{$this->sigla}'";
+			$sql = "DELETE FROM Cursos WHERE curso_id = '{$this->curso_id}'";
 			$this->con->consultaSimple($sql);
 		}
 
 		public function ver() {
-			$sql = "SELECT * FROM Cursos,Docente WHERE  Cursos.docente_id=Docente.id AND sigla = '{$this->sigla}' LIMIT 1";
+			$sql = "SELECT * FROM Cursos,Docente WHERE  Cursos.docente_id=Docente.id AND curso_id = '{$this->curso_id}' LIMIT 1";
 			$resultado = $this->con->consultaRetorno($sql);
 			$row = mysql_fetch_assoc($resultado);
 
 			// Set
+			$this->curso_id = $row['curso_id'];
 			$this->sigla = $row['sigla'];
 			$this->titulo = $row['titulo'];
 			$this->resumen = $row['resumen'];
@@ -71,7 +73,7 @@
 		}
 
 		public function editar() {
-			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' WHERE sigla = '{$this->sigla}'";
+			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' ,sigla='{$this->sigla}' WHERE curso_id = '{$this->curso_id}'";
 
 			$this->con->consultaSimple($sql);
 		}

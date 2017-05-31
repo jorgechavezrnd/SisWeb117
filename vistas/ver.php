@@ -1,11 +1,14 @@
 <?php 
 	$controlador = new ControladorCursos();
-	if (isset($_GET['sigla'])) {
-		$row = $controlador->ver($_GET['sigla']);
+	if (isset($_GET['curso_id'])) {
+		$row = $controlador->ver($_GET['curso_id']);
 	} else {
 		header("Location: index.php");
 	}
  ?>
+ <br><br>
+<b>Id curso:</b> <?php echo $row['curso_id'] ?>
+
 <br><br>
 <b>Sigla:</b> <?php echo $row['sigla'] ?>
 <br><br>

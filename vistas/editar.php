@@ -3,14 +3,14 @@
 	$controlador = new ControladorCursos();
 	$resultado = $controlador->getdocentes();
 
-	if (isset($_GET['sigla'])) {
-		$row = $controlador->ver($_GET['sigla']);
+	if (isset($_GET['curso_id'])) {
+		$row = $controlador->ver($_GET['curso_id']);
 	} else {
 		header("Location: index.php");
 	}
 
 	if (isset($_POST['enviar'])) {
-		$controlador->editar($_GET['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
+		$controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
 		header('Location: index.php');
 	}
 
@@ -19,8 +19,11 @@
 
 
  <form action="" method="POST">
+ 	Id curso: <br>
+ 	<input type="text" name="curso_id" value="<?php echo $row['curso_id']; ?>" disabled>
+ 	<br><br>
  	Sigla: <br>
- 	<input type="text" name="sigla" value="<?php echo $row['sigla']; ?>" disabled>
+ 	<input type="text" name="sigla" value="<?php echo $row['sigla']; ?>" required>
  	<br><br>
  	Titulo: <br>
  	<input type="text" name="titulo" value="<?php echo $row['titulo']; ?>" required>
