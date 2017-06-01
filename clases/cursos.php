@@ -35,20 +35,9 @@
 		}
 
 		public function crear() {
+			$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id) VALUES ('{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
+			$this->con->consultaSimple($sql);
 
-			$sql2 = "SELECT * FROM Cursos WHERE curso_id = '{$this->curso_id}'";
-			$resultado = $this->con->consultaRetorno($sql2);
-			$num = mysql_num_rows($resultado);
-
-			if ($num != 0) {
-				return false;
-			} else {
-				$sql = "INSERT INTO Cursos (curso_id,sigla, titulo, resumen, fecha_inicio, docente_id) VALUES (
-					'{$this->curso_id}','{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
-
-				$this->con->consultaSimple($sql);
-				return true;
-			}
 		}
 
 		public function eliminar() {

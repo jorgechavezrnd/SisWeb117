@@ -17,7 +17,7 @@
 			return $resultado;
 		}
 
-		public function crear($curso_id,$sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function crear($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
 
 			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->set("sigla", $sigla);
@@ -26,8 +26,8 @@
 			$this->cursos->set("fecha_inicio", $fecha_inicio);
 			$this->cursos->set("docente_id", $docente_id);
 
-			$resultado = $this->cursos->crear();
-			return $resultado;
+			$this->cursos->crear();
+			
 		}
 
 		public function eliminar($curso_id) {

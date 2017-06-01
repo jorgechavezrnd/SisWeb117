@@ -2,20 +2,13 @@
 	$controlador = new ControladorCursos();
 	$resultado2 = $controlador->getdocentes();
 	if (isset($_POST['enviar'])) {
-    	$r = $controlador->crear($_POST['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
-    	if ($r) {
-			echo "Se ha registrado un nuevo curso";
-		} else {
-			echo "El curso que esta intentando registrar ya existe";
-		}
+    	$controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
+		echo "Se ha registrado un nuevo curso";
 	}
 ?>
 <h3>Registro de un nuevo curso</h3>
 <hr>
 <form action="" method="POST">
-	<label>Id del curso: </label><br>
-	<input type="text" name="curso_id" required>
-	<br><br>
 	<label>Sigla</label><br>
 	<input type="text" name="sigla" maxlength="7" required>
 	<br><br>
