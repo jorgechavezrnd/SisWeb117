@@ -5,22 +5,25 @@
 	} else {
 		header("Location: index.php");
 	}
- ?>
- <br><br>
-<b>Id curso:</b> <?php echo $row['curso_id'] ?>
+?>
 
-<br><br>
-<b>Sigla:</b> <?php echo $row['sigla'] ?>
-<br><br>
-
-<b>Titulo:</b> <?php echo $row['titulo'] ?>
-<br><br>
-
-<b>Resumen:</b> <?php echo $row['resumen'] ?>
-<br><br>
-
-<b>Fecha de inicio:</b> <?php echo $row['fecha_inicio'] ?>
-<br><br>
-
-<b>Nombre del docente:</b> <?php echo $row['nombre'] ?>
-<br><br>
+<head>
+	<title>Ver curso</title>
+	<link href="css/estiloVer.css" rel="stylesheet">
+</head>
+<body style="background-image:url(imagenes/ucbFondo.jpg) ">
+	<div id="vista"> 
+		<img src="imagenes/python.jpg" class="wrap align-right"> 
+		<p id="title" font="Arial"><i><?php echo $row['titulo'] ?></i></p>
+		<p id="text" font="Arial">Docente: <?php echo $row['nombre'] ?></p>
+		<p id="text" font="Arial">Curso: <?php echo $row['sigla'] ?></p>
+		<p id="text" font="Arial">Fecha de inicio: <?php echo $row['fecha_inicio'] ?></p>
+		<div>
+			<p id="text" font="Arial">
+				<?php echo $row['resumen'] ?>
+			</p>
+		</div>
+	</div>
+	<br></br>
+	<a href="index.php" class="myButton">Atrás</a>
+</body>

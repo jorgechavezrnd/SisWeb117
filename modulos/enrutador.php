@@ -11,7 +11,7 @@
 					break;
 
 				case "ver":
-					include_once('vistas/' . $vista . '.php' );
+					include_once('vistas/ver.php' );
 					break;
 
 				case "editar":
