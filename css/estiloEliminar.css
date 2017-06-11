@@ -6,28 +6,6 @@
     font-size: xx-large;
 }
 
-img{ 
-	display: block;
-	margin:0 auto 0 auto;
-	width: 300px;
-	height: 300px;
-	align-content: center;
-} 
-img.wrap { 
-	 max-width: 50%; 
-	 margin: 30px 0px; 
-} 
-img.align-right { 
-	 background: #FFFFFF;
-	float: right; 
-	bottom: 100px;
-	margin-left: 0px; 
-	margin-right: 0px;
-	background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 60%;
-    background-size: 70% ;
-} 
 .myButton {
 	background-color:#FFFFFF;
 	-moz-border-radius:29px;
@@ -56,11 +34,7 @@ img.align-right {
     border:6px solid #FFBF00;
     background: #1963CB;
     padding: 20px; 
-    width: 1270px;
-    height: 200px; 
-    position:relative;
- 	top:200px;
- 	left:100px;
+
 }
 #buttonC{
 	position: relative;
