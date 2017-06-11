@@ -11,8 +11,8 @@
 
 	if (isset($_POST['enviar'])) {
     if($_FILES['image']['tmp_name']==null){
-      echo "Ingrese una imagen";
-		 
+      $controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid'],$row['imagename'],$row['imagecontent']);
+      header('Location: index.php');
     }else{
       $image = addslashes($_FILES['image']['tmp_name']);
       $name = addslashes($_FILES['image']['name']);
@@ -72,14 +72,14 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Imagen</label>
       <div class="col-lg-5">
-           <input type="file" name="image" />
+           <input type="file" name="image"/>
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-1">
         <button type="submit" name="enviar" class="btn btn-primary">Editar</button>
-        <button type="reset" class="btn btn-default">Cancelar</button>
+        <a href="index.php" class="btn btn-default">Cancelar</a>
       </div>
     </div>
 

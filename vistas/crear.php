@@ -71,7 +71,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-1">
         <button type="submit" name="enviar" value="upload" class="btn btn-primary">Enviar</button>
-        <button type="reset" class="btn btn-default">Cancelar</button>
+        <a href="index.php" class="btn btn-default">Cancelar</a>
       </div>
     </div>
 

@@ -18,7 +18,7 @@
 	<link href="css/estiloEliminar.css" rel="stylesheet">
 </head>
 <body style="background-image:url(imagenes/ucbFondo.jpg);">
-<div>
+
 	<div id="vista"> 
 		<p id="text" font="Arial">¿Seguro que desea eliminar el curso: <?php echo $row['titulo'] ?>?</p>
 		<form action="" method="POST">
@@ -26,7 +26,6 @@
 
  		</form>
 	</div>
-	<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-</div>
+
 </body>
 </html>
