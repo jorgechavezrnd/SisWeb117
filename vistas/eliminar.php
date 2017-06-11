@@ -11,10 +11,19 @@
 		header("Location: index.php");
 	}
  ?>
-<br><br>
- ¿Usted de verdad quiere eliminar el curso de: <?php echo $row['titulo'] ?>?
- <br><br>
-
- <form action="" method="POST">
- 	<input type="submit" name="enviar" value="Eliminar">
- </form>
+<head>
+	<title>Eliminar</title>
+	<link href="css/estiloEliminar.css" rel="stylesheet">
+</head>
+<body style="background-image:url(imagenes/ucbFondo.jpg) ">
+	<div id="vista"> 
+		<p id="text" font="Arial">¿Seguro que desea eliminar el curso: <?php echo $row['titulo'] ?>?</p>
+		<form action="" method="POST">
+ 			<a id="buttonC" href="index.php" class="myButton">Cancelar</a> <input id="buttonA" type="submit" class="myButton" name="enviar" value="Eliminar">
+ 		</form>
+		 <!--<a id="buttonA" href="index.html" class="myButton">Aceptar</a>-->
+	</div>
+	<br></br>
+	
+</body>
+</html>

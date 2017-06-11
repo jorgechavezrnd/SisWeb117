@@ -19,7 +19,7 @@
 					break;
 
 				case "eliminar":
-					include_once('vistas/' . $vista . '.php' );
+					include_once('vistas/eliminar.php' );
 					break;
 
 				default:
