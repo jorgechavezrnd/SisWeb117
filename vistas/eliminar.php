@@ -21,7 +21,7 @@
 		<form action="" method="POST">
  			<a id="buttonC" href="index.php" class="myButton">Cancelar</a> <input id="buttonA" type="submit" class="myButton" name="enviar" value="Eliminar">
  		</form>
-		 <!--<a id="buttonA" href="index.html" class="myButton">Aceptar</a>-->
+		 
 	</div>
 	<br></br>
 	
