@@ -17,7 +17,7 @@
 			return $resultado;
 		}
 
-		public function crear($sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function crear($sigla, $titulo, $resumen, $fecha_inicio, $docente_id,$name,$image) {
 
 			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->set("sigla", $sigla);
@@ -25,7 +25,8 @@
 			$this->cursos->set("resumen", $resumen);
 			$this->cursos->set("fecha_inicio", $fecha_inicio);
 			$this->cursos->set("docente_id", $docente_id);
-
+			$this->cursos->set("name",$name);
+			$this->cursos->set("image",$image);
 			$this->cursos->crear();
 			
 		}
@@ -41,13 +42,15 @@
 			return $datos;
 		}
 
-		public function editar($curso_id,$sigla, $titulo, $resumen, $fecha_inicio, $docente_id) {
+		public function editar($curso_id,$sigla, $titulo, $resumen, $fecha_inicio, $docente_id,$name,$image) {
 			$this->cursos->set("curso_id", $curso_id);
 			$this->cursos->set("sigla", $sigla);
 			$this->cursos->set("titulo", $titulo);
 			$this->cursos->set("resumen", $resumen);
 			$this->cursos->set("fecha_inicio", $fecha_inicio);
 			$this->cursos->set("docente_id", $docente_id);
+			$this->cursos->set("name",$name);
+			$this->cursos->set("image",$image);
 			$this->cursos->editar();
 		}
 		

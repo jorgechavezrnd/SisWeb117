@@ -2,15 +2,24 @@
 	$controlador = new ControladorCursos();
 	$resultado2 = $controlador->getdocentes();
 	if (isset($_POST['enviar'])) {
-    	$controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid']);
-		echo "Se ha registrado un nuevo curso";
-	}
+    if($_FILES['image']['tmp_name']==null){
+      echo "Ingrese una imagen";
+    }else{
+      $image = addslashes($_FILES['image']['tmp_name']);
+      $name = addslashes($_FILES['image']['name']);
+      $image = file_get_contents($image);
+      $image = base64_encode($image);
+      $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['selectid'],$name,$image);
+       echo "Se ha registrado un nuevo curso";	
+    }
+  }	
+
 ?>
 
 <h1>Registro de un nuevo curso</h1>
 
 
-<form action="" method="POST">
+<form method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Titulo</label>
@@ -53,8 +62,15 @@
     </div>
 
     <div class="form-group">
+      <label class="col-lg-1 control-label">Imagen</label>
+      <div class="col-lg-5">
+           <input type="file" name="image"/>
+      </div>
+    </div>
+
+    <div class="form-group">
       <div class="col-lg-10 col-lg-offset-1">
-        <button type="submit" name="enviar" class="btn btn-primary">Enviar</button>
+        <button type="submit" name="enviar" value="upload" class="btn btn-primary">Enviar</button>
         <button type="reset" class="btn btn-default">Cancelar</button>
       </div>
     </div>

@@ -12,8 +12,8 @@
 		private $resumen;
 		private $fecha_inicio;
 		private $docente_id;
-		private $imagename;
-		private $imagecontent;
+		private $name;
+		private $image;
 		
 		private $con;
 
@@ -37,7 +37,7 @@
 		}
 
 		public function crear() {
-			$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id) VALUES ('{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}')";
+			$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id,imagename,imagecontent) VALUES ('{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}','{$this->name}','{$this->image}')";
 			$this->con->consultaSimple($sql);
 
 		}
@@ -59,12 +59,14 @@
 			$this->resumen = $row['resumen'];
 			$this->fecha_inicio = $row['fecha_inicio'];
 			$this->docente_id = $row['docente_id'];
+			$this->name=$row['imagename'];
+			$this->image=$row['imagecontent'];
 
 			return $row;
 		}
 
 		public function editar() {
-			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' ,sigla='{$this->sigla}' WHERE curso_id = '{$this->curso_id}'";
+			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' ,sigla='{$this->sigla}' , imagename='{$this->name}' , imagecontent='{$this->image}' WHERE curso_id = '{$this->curso_id}'";
 
 			$this->con->consultaSimple($sql);
 		}

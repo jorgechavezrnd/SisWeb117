@@ -14,8 +14,8 @@
 </head>
 <body style="background-image:url(imagenes/ucbFondo.jpg) ">
 	<div>
-	<div id="vista"> 
-		<img src="imagenes/python.jpg" class="wrap align-right"> 
+	<div id="vista">
+		<img src="data:image;base64, <?php echo $row['imagecontent']?>" class="wrap align-right"> 
 		<p id="title" font="Arial"><i><?php echo $row['titulo'] ?></i></p>
 		<p id="text" font="Arial">Docente: <?php echo $row['nombre'] ?></p>
 		<p id="text" font="Arial">Curso: <?php echo $row['sigla'] ?></p>
