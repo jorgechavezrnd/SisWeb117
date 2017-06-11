@@ -61,8 +61,10 @@ img.align-right {
     border:6px solid #FFBF00;
     background: #1963CB;
     padding: 20px; 
-    width: 1536px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
+    resize: both;
+    overflow: auto;
 
 }
 

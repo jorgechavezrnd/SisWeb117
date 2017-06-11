@@ -10,8 +10,12 @@
 <head>
 	<title>Ver curso</title>
 	<link href="css/estiloVer.css" rel="stylesheet">
+	<style>
+    
+   </style>
 </head>
 <body style="background-image:url(imagenes/ucbFondo.jpg) ">
+	<div>
 	<div id="vista"> 
 		<img src="imagenes/python.jpg" class="wrap align-right"> 
 		<p id="title" font="Arial"><i><?php echo $row['titulo'] ?></i></p>
@@ -26,4 +30,5 @@
 	</div>
 	<br></br>
 	<a href="index.php" class="myButton">Atrás</a>
+	</div>
 </body>

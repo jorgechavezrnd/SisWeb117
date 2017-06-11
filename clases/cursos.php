@@ -12,6 +12,8 @@
 		private $resumen;
 		private $fecha_inicio;
 		private $docente_id;
+		private $imagename;
+		private $imagecontent;
 		
 		private $con;
 
