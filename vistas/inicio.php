@@ -1,6 +1,8 @@
 <?php 
 	$controlador = new ControladorCursos();
 	$resultado = $controlador->index();
+
+	$login = 0;
 ?>
 
 <table id="tablaCursos">
@@ -23,7 +25,9 @@
 					</p>
 					<br/>
 					<a href="index.php?cargar=ver&curso_id=<?php echo $row['curso_id']; ?>">Ver Detalle</a>
-					 <?php echo " | " ?><a href="index.php?cargar=editar&curso_id=<?php echo $row['curso_id']; ?>">Editar</a><?php echo " | " ?><a href="index.php?cargar=eliminar&curso_id=<?php echo $row['curso_id']; ?>">eliminar</a>
+					<?php if ($login == 1): ?>
+					 	<?php echo " | " ?><a href="index.php?cargar=editar&curso_id=<?php echo $row['curso_id']; ?>">Editar</a><?php echo " | " ?><a href="index.php?cargar=eliminar&curso_id=<?php echo $row['curso_id']; ?>">eliminar</a>
+			 		<?php endif; ?>
 				</figure>
 			</th>
 			<?php
