@@ -12,12 +12,18 @@
   <link href="estilos.css" rel="stylesheet">
   <!--<link href="css/estiloVer.css" rel="stylesheet">-->
 </head>
+<style>
+div{
+   overflow: auto;
+}
+</style>
 <body>
+
   <header id="cabeceraIndex">
     <img src="imagenes/logo.jpg" alt="UCB logo" width="150" height="200">
     <img src="imagenes/banner.jpg" alt="baner ingenieria en sistemas" width="1050" height="200">
   </header>
-  
+
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">

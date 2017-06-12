@@ -15,22 +15,22 @@
 
 ?>
 
-<h1>Registro de un nuevo curso</h1>
-
-
+<p style="font-size: 35pt;">Registro de un nuevo curso</p>
+<br></br>
+<body>
 <form method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Titulo</label>
       <div class="col-lg-5">
-        <input type="text" name="titulo" class="form-control" id="inputEmail" placeholder="Titulo">
+        <input type="text" maxlength="30" minlength="1" name="titulo" class="form-control" id="inputEmail" placeholder="Titulo">
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Sigla</label>
       <div class="col-lg-5">
-        <input type="text" name="sigla" class="form-control" id="inputEmail" placeholder="Sigla">
+        <input type="text" maxlength="8" name="sigla" class="form-control" id="inputEmail" placeholder="Sigla">
       </div>
     </div>
 
@@ -44,14 +44,14 @@
     <div class="form-group">
       <label for="inputDocente" class="col-lg-1 control-label">Docente</label>
       <div class="col-lg-5">
-  		  <input type="text" name="docente" class="form-control" id="inputDocente" placeholder="Docente">
+  		  <input type="text" minlength="1" name="docente" class="form-control" id="inputDocente" placeholder="Docente">
       </div>
     </div>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea class="form-control" name="resumen" rows="5" id="textArea"></textarea>
+        <textarea class="form-control" minlength="1" maxlength="500" name="resumen" rows="6" id="textArea"></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>
@@ -71,7 +71,7 @@
     </div>
 
 </form>
-
+</body>
 
 
 

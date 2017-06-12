@@ -15,7 +15,11 @@
 					</h3>
 					<p class="description">
 						<img src="data:image;base64, <?php echo $row['imagecontent']?>" class="imagenCurso" />
-						<?php echo $row['resumen']; ?>
+						<?php if(strlen($row['resumen'])>=150){
+							echo substr($row['resumen'],0,(strlen($row['resumen'])/3)).'...';
+						}else{
+							echo $row['resumen'];	
+						} ?>
 					</p>
 					<br/>
 					<a href="index.php?cargar=ver&curso_id=<?php echo $row['curso_id']; ?>">Ver Detalle</a>

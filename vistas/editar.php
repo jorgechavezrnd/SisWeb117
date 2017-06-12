@@ -24,21 +24,21 @@
 
  ?>
 
-<h1>Editar curso</h1>
-
+<h1 style="font-size: 35pt;">Editar curso</h1>
+<br></br>
 <form action="" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Titulo</label>
       <div class="col-lg-5">
- 		<input type="text" class="form-control" name="titulo" value="<?php echo $row['titulo']; ?>" required>
+ 		<input type="text" maxlength="30" minlength="1" class="form-control" name="titulo" value="<?php echo $row['titulo']; ?>" required>
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Sigla</label>
       <div class="col-lg-5">
- 		<input type="text" class="form-control" name="sigla" value="<?php echo $row['sigla']; ?>" required>
+ 		<input type="text" maxlength="8" class="form-control" name="sigla" value="<?php echo $row['sigla']; ?>" required>
       </div>
     </div>
 
@@ -51,14 +51,14 @@
     <div class="form-group">
       <label for="select" class="col-lg-1 control-label">Docente</label>
       <div class="col-lg-5">
-        <input type="text" class="form-control" name="docente" value="<?php echo $row['docente']; ?>" required>
+        <input type="text" minlength="1" class="form-control" name="docente" value="<?php echo $row['docente']; ?>" required>
       </div>
     </div>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea type="text" class="form-control" name="resumen" value="<?php echo $row['resumen']; ?>" required><?php echo $row['resumen']; ?></textarea>
+        <textarea type="text" minlength="1" maxlength="500" class="form-control" name="resumen" rows="6" value="<?php echo $row['resumen']; ?>" required><?php echo $row['resumen']; ?></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>
@@ -66,7 +66,8 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Imagen</label>
       <div class="col-lg-5">
-        <input type="file" name="image"/> <?php echo 'Archivo actual: '.$row['imagename']; ?>
+        <input type="file" name="image"/></br>
+        <?php echo 'Imagen actual: '.$row['imagename']; ?>
       </div>
     </div>
 
