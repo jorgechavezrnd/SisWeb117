@@ -1,24 +1,24 @@
 <?php 
-	include_once("modulos/enrutador.php");
-	include_once("modulos/controlador.php");
+  include_once("modulos/enrutador.php");
+  include_once("modulos/controlador.php");
 ?>
 
- <!DOCTYPE html>
- <html>
-	 <head>
-	 	<meta charset="utf-8"/>
-	 	<title>Cursos de formacion continua</title>
-	 	   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	 </head>
-   <style>
-    div {
-     overflow: auto;
-    }
-   </style>
-  <body>
-<nav class="navbar navbar-inverse">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cursos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="estilos.css" rel="stylesheet">
+  <!--<link href="css/estiloVer.css" rel="stylesheet">-->
+</head>
+<body>
+  <header id="cabeceraIndex">
+    <img src="imagenes/logo.jpg" alt="UCB logo" width="150" height="200">
+    <img src="imagenes/banner.jpg" alt="baner ingenieria en sistemas" width="1050" height="200">
+  </header>
+  
+  <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.php">Inicio</a>
@@ -33,11 +33,13 @@
     </div>
   </div>
 </nav>
-<?php 
-	$enrutador = new Enrutador();
-	if ($enrutador->validarGET($_GET['cargar'])) {
-	 	$enrutador->cargarVista($_GET['cargar']);
-	}
-?>
-	 </body>
+
+  <?php 
+    $enrutador = new Enrutador();
+    if ($enrutador->validarGET($_GET['cargar'])) {
+      $enrutador->cargarVista($_GET['cargar']);
+    }
+  ?>
+
+</body>
 </html>

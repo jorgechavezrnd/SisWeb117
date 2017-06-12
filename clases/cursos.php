@@ -11,7 +11,7 @@
 		private $titulo;
 		private $resumen;
 		private $fecha_inicio;
-		private $docente_id;
+		private $docente;
 		private $name;
 		private $image;
 		
@@ -31,13 +31,13 @@
 		}
 
 		public function listar() {
-			$sql = "SELECT * FROM Cursos,Docente WHERE Cursos.docente_id=Docente.id";
+			$sql = "SELECT * FROM Cursos";
 			$resultado = $this->con->consultaRetorno($sql);
 			return $resultado;
 		}
 
 		public function crear() {
-			$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente_id,imagename,imagecontent) VALUES ('{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente_id}','{$this->name}','{$this->image}')";
+			$sql = "INSERT INTO Cursos (sigla, titulo, resumen, fecha_inicio, docente, imagename, imagecontent) VALUES ('{$this->sigla}', '{$this->titulo}', '{$this->resumen}', '{$this->fecha_inicio}', '{$this->docente}','{$this->name}','{$this->image}')";
 			$this->con->consultaSimple($sql);
 
 		}
@@ -48,7 +48,7 @@
 		}
 
 		public function ver() {
-			$sql = "SELECT * FROM Cursos,Docente WHERE  Cursos.docente_id=Docente.id AND curso_id = '{$this->curso_id}' LIMIT 1";
+			$sql = "SELECT * FROM Cursos WHERE  curso_id = '{$this->curso_id}' LIMIT 1";
 			$resultado = $this->con->consultaRetorno($sql);
 			$row = mysql_fetch_assoc($resultado);
 
@@ -58,7 +58,7 @@
 			$this->titulo = $row['titulo'];
 			$this->resumen = $row['resumen'];
 			$this->fecha_inicio = $row['fecha_inicio'];
-			$this->docente_id = $row['docente_id'];
+			$this->docente = $row['docente'];
 			$this->name=$row['imagename'];
 			$this->image=$row['imagecontent'];
 
@@ -66,17 +66,10 @@
 		}
 
 		public function editar() {
-			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente_id = '{$this->docente_id}' ,sigla='{$this->sigla}' , imagename='{$this->name}' , imagecontent='{$this->image}' WHERE curso_id = '{$this->curso_id}'";
+			$sql = "UPDATE Cursos SET titulo = '{$this->titulo}', resumen = '{$this->resumen}', fecha_inicio = '{$this->fecha_inicio}', docente = '{$this->docente}' ,sigla='{$this->sigla}' , imagename='{$this->name}' , imagecontent='{$this->image}' WHERE curso_id = '{$this->curso_id}'";
 
 			$this->con->consultaSimple($sql);
 		}
-
-		public function getdocentes(){
-			$sql = "SELECT * FROM Docente";
-			$resultado = $this->con->consultaRetorno($sql);
-			return $resultado;
-		}
-
 
 	}
 

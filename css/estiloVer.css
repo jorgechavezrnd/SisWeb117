@@ -10,19 +10,19 @@
     color:#FFFFFF;
     font-size: 48pt;
 }
-img{ 
-	display: block;
+#imagenIcono{ 
+	display: inline-block;
 	margin:0 auto 0 auto;
 	width: 300px;
 	height: 300px;
 	align-content: center;
 } 
 img.wrap { 
-	 max-width: 50%; 
-	 margin: 30px 0px; 
+	max-width: 50%; 
+ 	margin: 30px 0px; 
 } 
 img.align-right { 
-	 background: #FFFFFF;
+ 	background: #FFFFFF;
 	float: right; 
 	bottom: 100px;
 	margin-left: 0px; 

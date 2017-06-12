@@ -15,9 +15,9 @@
 <body style="background-image:url(imagenes/ucbFondo.jpg) ">
 	<div>
 	<div id="vista">
-		<img src="data:image;base64, <?php echo $row['imagecontent']?>" class="wrap align-right"> 
+		<img id="imagenIcono" src="data:image;base64, <?php echo $row['imagecontent']?>" class="wrap align-right"> 
 		<p id="title" font="Arial"><i><?php echo $row['titulo'] ?></i></p>
-		<p id="text" font="Arial">Docente: <?php echo $row['nombre'] ?></p>
+		<p id="text" font="Arial">Docente: <?php echo $row['docente'] ?></p>
 		<p id="text" font="Arial">Curso: <?php echo $row['sigla'] ?></p>
 		<p id="text" font="Arial">Fecha de inicio: <?php echo $row['fecha_inicio'] ?></p>
 		<div>
