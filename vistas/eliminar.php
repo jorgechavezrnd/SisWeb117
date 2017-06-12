@@ -5,7 +5,6 @@
 	} else {
 		header("Location: index.php");
 	}
-
 	if (isset($_POST['enviar'])) {
 		$controlador->eliminar($_GET['curso_id']);
 		header("Location: index.php");

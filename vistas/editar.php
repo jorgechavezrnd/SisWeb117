@@ -25,8 +25,9 @@
 
  ?>
 
-<h1>Editar curso</h1>
-
+<h1>Curso: <?php echo $row['sigla']; ?></h1>
+<br></br>
+<body style="background-image:url(imagenes/ucbFondo.jpg) ">
 <form action="" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -84,5 +85,5 @@
     </div>
 
 </form>
-
+</body>
 

@@ -17,8 +17,8 @@
 ?>
 
 <h1>Registro de un nuevo curso</h1>
-
-
+<br></br>
+<body style="background-image:url(imagenes/ucbFondo.jpg) ">
 <form method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -76,7 +76,7 @@
     </div>
 
 </form>
-
+</body>
 
 
 
