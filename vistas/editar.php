@@ -67,7 +67,9 @@
       <label for="textArea" class="col-lg-1 control-label">Imagen</label>
       <div class="col-lg-5">
         <input type="file" name="image"/></br>
-        <?php echo 'Imagen actual: '.$row['imagename']; ?>
+        <?php echo 'Imagen: '.$row['imagename']; ?>
+        <br>
+        <img id="imagenIcono" src="data:image;base64, <?php echo $row['imagecontent']?>" height="150" width="150"> 
       </div>
     </div>
 
