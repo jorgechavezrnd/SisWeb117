@@ -51,7 +51,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea class="form-control" minlength="1" maxlength="500" name="resumen" rows="6" id="textArea"></textarea>
+        <textarea class="form-control" minlength="1" maxlength="2048" name="resumen" rows="12" id="textArea"></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>

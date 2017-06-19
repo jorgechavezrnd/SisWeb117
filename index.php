@@ -1,7 +1,7 @@
 <?php 
   include_once("modulos/enrutador.php");
   include_once("modulos/controlador.php");
-  $login = 0;
+  $login = 1;
 ?>
 
 <!DOCTYPE html>

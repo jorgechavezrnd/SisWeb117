@@ -5,6 +5,7 @@
 	} else {
 		header("Location: index.php");
 	}
+	$login = 0;
 ?>
 
 <head>
@@ -25,8 +26,15 @@
 				<?php echo $row['resumen'] ?>
 			</p>
 		</div>
+		<br></br>
+		
 	</div>
 	<br></br>
-	<a href="index.php" class="myButton">Atrás</a>
+	<?php if ($login == 1){ ?>
+			<a class="myButton" href="index.php?cargar=editar&curso_id=<?php echo $row['curso_id']; ?>">Editar</a>  <a class="myButton" href="index.php?cargar=eliminar&curso_id=<?php echo $row['curso_id']; ?>">Eliminar</a> <a href="index.php" class="myButton">Atrás</a>
+	<?php }else{ ?>
+			<a href="index.php" class="myButton">Atrás</a>
+	<?php } ?>
+	
 	</div>
 </body>

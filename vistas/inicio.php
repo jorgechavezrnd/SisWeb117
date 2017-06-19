@@ -2,7 +2,7 @@
 	$controlador = new ControladorCursos();
 	$resultado = $controlador->index();
 
-	$login = 0;
+	$login = 1;
 ?>
 
 <table id="tablaCursos">
@@ -17,8 +17,8 @@
 					</h3>
 					<p class="description">
 						<img src="data:image;base64, <?php echo $row['imagecontent']?>" class="imagenCurso" />
-						<?php if(strlen($row['resumen'])>=150){
-							echo substr($row['resumen'],0,(strlen($row['resumen'])/3)).'...';
+						<?php if(strlen($row['resumen'])>175){
+							echo substr($row['resumen'],0,175).'...'.'<a href="index.php?cargar=ver&curso_id='.$row['curso_id'].'">Ver Detalle</a>';
 						}else{
 							echo $row['resumen'];	
 						} ?>

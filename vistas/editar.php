@@ -58,7 +58,7 @@
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea type="text" minlength="1" maxlength="500" class="form-control" name="resumen" rows="6" value="<?php echo $row['resumen']; ?>" required><?php echo $row['resumen']; ?></textarea>
+        <textarea type="text" minlength="1" maxlength="2048" class="form-control" name="resumen" rows="12" value="<?php echo $row['resumen']; ?>" required><?php echo $row['resumen']; ?></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>

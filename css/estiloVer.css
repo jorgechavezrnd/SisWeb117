@@ -55,6 +55,28 @@ img.align-right {
 	position:relative;
 	top:1px;
 }
+#admutton{
+	background-color:#FFFFFF;
+	-moz-border-radius:29px;
+	-webkit-border-radius:29px;
+	border-radius:29px;
+	border:3px solid #FFBF00;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 0px 7px #2f6627;
+}
+#admbutton:hover{
+	background-color:#2E9AFE;
+}
+#admbutton:active {
+	position:relative;
+	top:1px;
+}
 #vista {
 	align-items: center;
     border-radius: 50px;
