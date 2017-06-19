@@ -23,35 +23,35 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Titulo</label>
       <div class="col-lg-5">
-        <input type="text" maxlength="30" minlength="1" name="titulo" class="form-control" id="inputEmail" placeholder="Titulo">
+        <input type="text" maxlength="30" minlength="1" name="titulo" class="form-control" id="inputEmail" placeholder="Titulo" required="required">
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Sigla</label>
       <div class="col-lg-5">
-        <input type="text" maxlength="8" name="sigla" class="form-control" id="inputEmail" placeholder="Sigla">
+        <input type="text" maxlength="8" name="sigla" class="form-control" id="inputEmail" placeholder="Sigla" required="required">
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputdate" class="col-lg-1 control-label">Fecha inicio</label>
       <div class="col-lg-5">
-        <input type="date" name="fecha_inicio" class="form-control" id="inputPassword" placeholder="Fecha inicio">
+        <input type="date" name="fecha_inicio" class="form-control" id="inputPassword" placeholder="Fecha inicio" required="required">
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputDocente" class="col-lg-1 control-label">Docente</label>
       <div class="col-lg-5">
-  		  <input type="text" minlength="1" name="docente" class="form-control" id="inputDocente" placeholder="Docente">
+  		  <input type="text" minlength="1" name="docente" class="form-control" id="inputDocente" placeholder="Docente" required="required">
       </div>
     </div>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea class="form-control" minlength="1" maxlength="2048" name="resumen" rows="12" id="textArea"></textarea>
+        <textarea class="form-control" minlength="1" maxlength="2048" name="resumen" rows="12" id="textArea" required="required"></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>
