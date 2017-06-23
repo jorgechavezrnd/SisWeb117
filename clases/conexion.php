@@ -13,7 +13,7 @@
 			$this->host = "localhost";
 			$this->user = "root";
 			$this->pass = "mysql";
-			$this->bd = "CFC";
+			$this->bd = "sisWebdb";
 
 			$con = mysql_connect($this->host, $this->user, $this->pass);
 

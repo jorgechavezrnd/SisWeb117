@@ -8,7 +8,15 @@
 <table id="tablaCursos">
 	<?php $index = 0; ?>
 	<tr>
-		<?php while ($row = mysql_fetch_array($resultado)): ?>
+		<?php $lista = array(); ?>
+		<?php while ($row = mysql_fetch_array($resultado)) {
+			$lista[] = $row;
+		}
+		?>
+		<?php $i = count($lista) - 1; ?>
+
+		<?php while ($i >= 0): ?>
+			<?php $row = $lista[$i] ?>
 			<?php $index++; ?>
 			<th class="curso">
 				<figure class="figura">
@@ -34,6 +42,7 @@
 				if($index % 2 == 0) {
 					echo '</tr><tr>';
 				}
+				$i--;
 				endwhile;
 				if($index == 1) {
 					echo '<th></th>';
