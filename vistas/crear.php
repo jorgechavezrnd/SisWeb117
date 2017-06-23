@@ -6,8 +6,8 @@
     }else{
       if(verificar($_POST['sigla'])){
         if(verificar($_POST['titulo'])){
-          if(verificar($_POST['resumen'])){
-            if(verificar($_POST['docente'])){
+          if(verificarResumen($_POST['resumen'])){
+            if(verificarNombreDocente($_POST['docente'])){
               $image = addslashes($_FILES['image']['tmp_name']);
               $name = addslashes($_FILES['image']['name']);
               $image = file_get_contents($image);
@@ -18,7 +18,11 @@
               echo "<p style='font-size: 20pt;'>Caracteres invalidos en docente</p>";
             }
           }else{
-            echo "<p style='font-size: 20pt;'>Caracteres invalidos en resumen</p>";
+            if (!verificar($_POST['resumen'])) {
+                echo "<p style='font-size: 20pt;'>Caracteres invalidos en resumen</p>";
+            } else {
+                echo "<p style='font-size: 20pt;'>Contenido mayor a 300 caracteres</p>";
+            }
           }
         }else{
           echo "<p style='font-size: 20pt;'>Caracteres invalidos en titulo</p>";
@@ -46,6 +50,28 @@
         return false;
       }
   }
+
+  function verificarResumen($texto) {
+    if (verificar($texto)) {
+      if (strlen($texto) <= 300) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function verificarNombreDocente($cad) {
+    $permitidos2 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+    for ($i=0; $i<strlen($cad); $i++) {
+      if (strpos($permitidos2, substr($cad,$i,1))===false){ 
+        return false;
+      }
+    } 
+
+    return true;
+  }
+
 ?>
 
 <p style="font-size: 35pt;">Registro de un nuevo curso</p>
