@@ -64,34 +64,34 @@
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Titulo</label>
       <div class="col-lg-5">
- 		<input type="text" maxlength="30" minlength="1" class="form-control" name="titulo" value="<?php echo $row['titulo']; ?>" required>
+ 		<input type="text" maxlength="30" minlength="1" class="form-control" name="titulo" value="<?php if(isset($_POST['titulo'])){echo $_POST['titulo'];}else{echo $row['titulo'];}?>" required>
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputEmail" class="col-lg-1 control-label">Sigla</label>
       <div class="col-lg-5">
- 		<input type="text" maxlength="8" class="form-control" name="sigla" value="<?php echo $row['sigla']; ?>" required>
+ 		<input type="text" maxlength="8" class="form-control" name="sigla" value="<?php if(isset($_POST['sigla'])) {echo $_POST['sigla'];} else{echo $row['sigla'];}?>" required>
       </div>
     </div>
 
     <div class="form-group">
       <label for="inputdate" class="col-lg-1 control-label">Fecha inicio</label>
       <div class="col-lg-5">
-       	<input type="date" class="form-control" name="fecha_inicio" value="<?php echo $row['fecha_inicio']; ?>" required>
+       	<input type="date" class="form-control" name="fecha_inicio" value="<?php echo $row['fecha_inicio']; ?>"  value="<?php if(isset($_POST['fecha_inicio'])){echo $_POST['fecha_inicio'];}else{echo $row['fecha_inicio'];}?>" required>
       </div>
     </div>
     <div class="form-group">
       <label for="select" class="col-lg-1 control-label">Docente</label>
       <div class="col-lg-5">
-        <input type="text" minlength="1" class="form-control" name="docente" value="<?php echo $row['docente']; ?>" required>
+        <input type="text" minlength="1" class="form-control" name="docente" value="<?php if(isset($_POST['docente'])){echo $_POST['docente'];}else{echo $row['docente'];}?>" required>
       </div>
     </div>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-1 control-label">Resumen</label>
       <div class="col-lg-5">
-        <textarea type="text" minlength="1" maxlength="2048" class="form-control" name="resumen" rows="12" value="<?php echo $row['resumen']; ?>" required><?php echo $row['resumen']; ?></textarea>
+        <textarea type="text" minlength="1" maxlength="2048" class="form-control" name="resumen" rows="12" required><?php if(isset($_POST['resumen'])){echo $_POST['resumen'];}else{echo $row['resumen'];}?></textarea>
         <span class="help-block">Descripción del curso.</span>
       </div>
     </div>
