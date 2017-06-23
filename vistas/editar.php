@@ -9,18 +9,51 @@
 	}
 
 	if (isset($_POST['enviar'])) {
-    if($_FILES['image']['tmp_name']==null){
-      $controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$row['imagename'],$row['imagecontent']);
-      header('Location: index.php');
-    }else{
-      $image = addslashes($_FILES['image']['tmp_name']);
-      $name = addslashes($_FILES['image']['name']);
-      $image = file_get_contents($image);
-      $image = base64_encode($image);
-      $controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$name,$image);
-      header('Location: index.php');
-    }
+    if(verificar($_POST['sigla'])){
+        if(verificar($_POST['titulo'])){
+          if(verificar($_POST['resumen'])){
+            if(verificar($_POST['docente'])){
+              if($_FILES['image']['tmp_name']==null){
+                  $controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$row['imagename'],$row['imagecontent']);
+                   header('Location: index.php');
+              }else{
+                  $image = addslashes($_FILES['image']['tmp_name']);
+                  $name = addslashes($_FILES['image']['name']);
+                  $image = file_get_contents($image);
+                  $image = base64_encode($image);
+                  $controlador->editar($_GET['curso_id'],$_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$name,$image);
+                  header('Location: index.php');
+              }
+            }else{
+              echo "Caracteres invalidos en docente";
+            }
+          }else{
+            echo "Caracteres invalidos en resumen";
+          }
+        }else{
+          echo "Caracteres invalidos en titulo";
+        }
+      }else{
+        echo "Caracteres invalidos en sigla";
+      }
+    
 	}
+  function verificar($cad){
+      $permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,;:¿¡!?"; 
+      $bandera=true;
+      for ($i=0; $i<strlen($cad); $i++){ 
+        if (strpos($permitidos, substr($cad,$i,1))===false){ 
+          if($bandera===true){
+           $bandera=false;
+          }   
+        }
+      } 
+      if($bandera===true){
+        return true;
+      }  else{
+        return false;
+      }
+  }
 
  ?>
 

@@ -4,15 +4,48 @@
     if($_FILES['image']['tmp_name']==null){
       echo "Ingrese una imagen";
     }else{
-      $image = addslashes($_FILES['image']['tmp_name']);
-      $name = addslashes($_FILES['image']['name']);
-      $image = file_get_contents($image);
-      $image = base64_encode($image);
-      $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$name,$image);
-       echo "Se ha registrado un nuevo curso";	
+      if(verificar($_POST['sigla'])){
+        if(verificar($_POST['titulo'])){
+          if(verificar($_POST['resumen'])){
+            if(verificar($_POST['docente'])){
+              $image = addslashes($_FILES['image']['tmp_name']);
+              $name = addslashes($_FILES['image']['name']);
+              $image = file_get_contents($image);
+              $image = base64_encode($image);
+              $controlador->crear($_POST['sigla'], $_POST['titulo'], $_POST['resumen'], $_POST['fecha_inicio'], $_POST['docente'],$name,$image);
+              echo "Se ha registrado un nuevo curso";
+            }else{
+              echo "Caracteres invalidos en docente";
+            }
+          }else{
+            echo "Caracteres invalidos en resumen";
+          }
+        }else{
+          echo "Caracteres invalidos en titulo";
+        }
+      }else{
+        echo "Caracteres invalidos en sigla";
+      }
+      	
     }
   }	
 
+  function verificar($cad){
+      $permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_ .,;:¿¡!?"; 
+      $bandera=true;
+      for ($i=0; $i<strlen($cad); $i++){ 
+        if (strpos($permitidos, substr($cad,$i,1))===false){ 
+          if($bandera===true){
+           $bandera=false;
+          }   
+        }
+      } 
+      if($bandera===true){
+        return true;
+      }  else{
+        return false;
+      }
+  }
 ?>
 
 <p style="font-size: 35pt;">Registro de un nuevo curso</p>
